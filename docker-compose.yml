@@ -17,9 +17,11 @@ services:
     depends_on:
       - db
     links:
-      - dbdoxck
+      - db
 
   db:
     image: postgres
     volumes:
       - 'db-data:/var/lib/postgresql/data'
+    environment: 
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
